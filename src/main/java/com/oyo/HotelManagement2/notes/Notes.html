@@ -1,0 +1,23 @@
+
+@JSONIGNORE: To avoid jackson recursion infinite
+@JOINCOLUMN , Adds where we wants Foreign Key in a table while Mapping
+@JOINCOLUMN: Why we use, :-To avoid IDS in both table and restricted to not create a new Table (ONETOONE AND ONETOMANY)
+
+//CASCADING: If any changes made in one table so automatically change in other table which mapped
+example:like if we change made in gmail so it will reflect youtube and google docs as well.
+
+advanagtge cascading:- No need to save in respository
+
+
+@MANYTOMANY : Thorough this it creates 2 tables (roomId-HotelId) and (HotelId-RoomId)
+IN ORDER TO AVOID THAT WE PUT @JOINCOLUMN: SO it creates single table by default their Ids name of Hotel_room-mapping
+
+@JOINCOLUMN(
+name = "tableName",
+
+joincolumns = @JOINCOLUMN(name = "hotel_id"),
+inverseJoinColumns = @JOINCOLUMN(name = "room_id")
+)
+
+ONCE YOU CREATE A TABLE AND MENTION IT AND GIVING REFERENCE AS ABOVE SO IN DATABASE
+If any extraa column has to PUT so create another Entity
